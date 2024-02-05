@@ -89,7 +89,7 @@
     color: #7a7a7a
 }
 .projectRelease{
-    margin:10px 0px;
+    margin: 10px 0px 0px 0px;
     font-size: 14px;
     font-weight: 500; 
     width:100%;
@@ -97,7 +97,7 @@
 .projectlinks{
     width:100%;
     text-decoration: none;
-    margin: 15px 0px 5px 0px;
+    margin: 10px 0px 5px 0px;
     display:flex;
     flex-direction:column;
     justify-content: space-between;
@@ -114,7 +114,7 @@
 }
 
 .link{
-    margin:15px 5px;
+    margin:10px 5px;
     text-decoration: none;
     font-size:14px;
     color: white

@@ -10,6 +10,9 @@
     <SkillsAndWork></SkillsAndWork>
     <v-divider id="sec1"></v-divider>
     <ProjectsDeveloped></ProjectsDeveloped>
+    <v-divider id="sec1"></v-divider>
+    <ContactMe></ContactMe>
+    <CopyrightAndBuild></CopyrightAndBuild>
   </div>
   </template>
 <script>
@@ -19,6 +22,8 @@
   import CategoryOfWork from '../components/CategoryOfWork.vue';
   import SkillsAndWork from '../components/SkillsAndWork.vue';
   import ProjectsDeveloped from '../components/ProjectsDeveloped.vue';
+  import ContactMe from '../components/ContactMe.vue';
+  import CopyrightAndBuild from '../components/CopyrightAndBuild.vue';
 export default {
   components:{
     WebNavBar,
@@ -26,7 +31,9 @@ export default {
     SelfIntro,
     CategoryOfWork,
     SkillsAndWork,
-    ProjectsDeveloped
+    ProjectsDeveloped,
+    ContactMe,
+    CopyrightAndBuild
   },
   data() {
     return { 

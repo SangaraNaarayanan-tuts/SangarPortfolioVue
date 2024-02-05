@@ -104,6 +104,11 @@
     background-color:#232323;
     padding: 20px 25px;
     max-width: 250px;
+    transition: .5s;
+}
+.cateCard:hover{
+    box-shadow: 0px 0px 10px #95d5b2;
+    transition: .5s;
 }
 .catImg{
     height:140px;

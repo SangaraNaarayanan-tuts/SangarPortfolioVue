@@ -219,6 +219,11 @@
     border-radius: 8px;
     background-color:#232323;
     padding: 12px 15px;
+    transition: .5s;
+}
+.skillsCard:hover{
+    box-shadow: 0px 0px 10px #95d5b2;
+    transition: .5s;
 }
 .skillsImg{
     padding: 8px;
