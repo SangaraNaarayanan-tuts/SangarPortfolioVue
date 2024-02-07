@@ -1,8 +1,7 @@
 <template>
    
   <div>
-    <WebNavBar class="WebNav"></WebNavBar>
-    <MobileNavBar class="MobileNav"></MobileNavBar>
+    <NavBar></NavBar>
     <SelfIntro></SelfIntro>
     <v-divider id="sec1"></v-divider>
     <CategoryOfWork></CategoryOfWork>
@@ -16,8 +15,7 @@
   </div>
   </template>
 <script>
-  import WebNavBar from '../components/WebNavBar.vue';
-  import MobileNavBar from '../components/MobileNavBar.vue';
+  import NavBar from '../components/NavBar.vue';
   import SelfIntro from '../components/SelfIntro.vue';
   import CategoryOfWork from '../components/CategoryOfWork.vue';
   import SkillsAndWork from '../components/SkillsAndWork.vue';
@@ -26,8 +24,7 @@
   import CopyrightAndBuild from '../components/CopyrightAndBuild.vue';
 export default {
   components:{
-    WebNavBar,
-    MobileNavBar,
+    NavBar,
     SelfIntro,
     CategoryOfWork,
     SkillsAndWork,
@@ -51,23 +48,6 @@ export default {
 #sec1{
   margin: 20px 0px;
 }
-@media only screen and (max-width: 600px) {
-  .MobileNav {
-    display: block;
-  }
-  .WebNav {
-    display: none;
-
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .MobileNav {
-    display: none;
-  }
-  .WebNav {
-    display: block;
-
-  }
-}
+  
 
 </style>

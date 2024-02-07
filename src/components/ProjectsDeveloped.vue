@@ -1,11 +1,23 @@
 <template>
     <div class="projectsDeveloped">
-        <div class="title">
+        <div class="title"
+        v-motion
+        :initial="{ opacity: 0, y: -100 }"
+        :visibleOnce="{ opacity: 1, y: 0 }"
+        :delay="200"
+        >
             <span> Individual Projects </span> 
                 <v-icon style="color: #95d5b2" icon="mdi-hammer-wrench"></v-icon>
      </div>
-     <div class="projects">
-        <div class="projectCard">
+     <div class="projects"
+     
+     >
+        <div class="projectCard"
+        v-motion
+        :initial="{ opacity: 0, X: -50 }"
+        :visibleOnce="{ opacity: 1, X: 0 }"
+        :delay="300"
+        >
 
             <div class="projectImage">
                 <v-img src="../assets/projects/DarkNotes/appLogo.png"></v-img>
@@ -24,14 +36,14 @@
             </div>
             
             <div class="projectlinks">
-                <div class="projectSource">
+                <!-- <div class="projectSource">
                     <v-icon size="28" style="color: #95d5b2" icon="mdi-github"></v-icon>
                     <a href  class="link"> Source code </a>
-                </div>
+                </div> -->
                 
                 <div class="projectTry">
                     <v-icon size="28" style="color: #95d5b2"  icon="mdi-google-play"></v-icon>
-                    <a href class="link"> Try Application</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.sangartuts.dark_notes" target="_blank" class="link"> Try Application</a>
                 </div>
             </div>
 
@@ -120,4 +132,9 @@
     color: white
 }
 
+@media only screen and (min-width: 768px) {
+    .title{
+        font-size: 20px;
+    }
+}
 </style>

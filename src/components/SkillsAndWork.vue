@@ -1,10 +1,20 @@
 <template>
     <div class="skillAndWork">
-        <div class="title">
+        <div class="title"
+        v-motion
+        :initial="{ opacity: 0, y: -100 }"
+        :visibleOnce="{ opacity: 1, y: 0 }"
+        :delay="200"
+        >
             <span> Skills & Experience </span> 
                 <v-icon style="color: #95d5b2" icon="mdi-sword-cross"></v-icon>
      </div>
-     <div class="skills">
+     <div class="skills"
+     v-motion
+     :initial="{ opacity: 0, X: -50 }"
+     :visibleOnce="{ opacity: 1, X: 0 }"
+     :delay="300"
+     >
         <div class="skillsCard">
             <div>
                 <v-avatar 
@@ -112,11 +122,21 @@
         </div> 
     
     </div>
-    <div class="workstitle">
+    <div class="workstitle"
+    v-motion
+    :initial="{ opacity: 0, X: -50 }"
+    :visibleOnce="{ opacity: 1, X: 0 }"
+    :delay="400"
+    >
         The companies that have been instrumental in cultivating my skills and molding me into an expert in the above mentioned areas. 
     </div>
     <div class="work">
-        <div class="workCard">
+        <div class="workCard"
+        v-motion
+        :initial="{ opacity: 0, X: -50 }"
+        :visibleOnce="{ opacity: 1, X: 0 }"
+        :delay="100"
+        >
             <div id="workYear">
                 <div>Aug-2022</div>
                 <div>Current</div>
@@ -136,7 +156,12 @@
             </section>
         </div>
         
-        <div class="workCard">
+        <div class="workCard"
+        v-motion
+        :initial="{ opacity: 0, X: -50 }"
+        :visibleOnce="{ opacity: 1, X: 0 }"
+        :delay="100"
+        >
             <div id="workYear">
                 <div>Feb-2022</div>
                 <div>Aug-2022</div>
@@ -151,7 +176,7 @@
             </div>
             
             <div class="workRole">
-                Software Development Engineer - Intern
+                Software Developer - Intern
             </div> 
             </section>
         </div>
@@ -250,8 +275,12 @@
     height:290px;
     width:260px;
     border-radius: 8px;
+    transition: .5s;
 }
-
+.workCard:hover{
+    box-shadow: 0px 0px 10px #95d5b2;
+    transition: .5s;
+}
 #workYear{
     display: flex;
     width: 100%; 
@@ -290,5 +319,38 @@
     font-weight: 500;
     color: #7a7a7a
 
+}
+@media only screen and (min-width: 768px) {
+    .skills{
+        gap:15px;
+        margin:15px 0px;
+    }
+    .work{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .title{
+        font-size: 20px;
+    }
+    .workstitle{
+        width: 800px;
+    }
+    .workCard{
+        height: 350px;
+        width: 300px;
+    }
+    .workImageCode{
+        height: 200px;
+        width: 100%;   
+    }
+    .workImageAcc{
+        height: 140px;
+        
+    }
+    .workCompany{
+        font-size: 20px;
+    }
+    
 }
 </style>

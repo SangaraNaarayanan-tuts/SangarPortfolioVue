@@ -1,26 +1,28 @@
 <template>
-    <div>
+    <div
+    v-motion
+    :initial="{ opacity: 0, y: -30 }"
+    :enter="{ opacity: 1, y: 0 }"
+    :delay="100"
+    >
         <v-app-bar app
         height="65"
         >
             <p class="name">Sangara naarayanan R</p>
-            <template   v-slot:append> 
+            <!-- <template   v-slot:append> 
                 <v-avatar
                 @click="drawer = !drawer"
                 class="image"
                 size="45"
                 >
                 <v-icon icon="mdi-card-account-details-outline"></v-icon>
-                <!-- <v-img src="../assets/sangarImage.jpeg"></v-img>   -->
+                 <v-img src="../assets/sangarImage.jpeg"></v-img>  
             </v-avatar>
-        </template>
+        </template>-->
         </v-app-bar>
-            <v-navigation-drawer
+            <!-- <v-navigation-drawer
             v-model="drawer"
-            rail-width="60"
-            width="200"
-         
-          >
+            >
                 <div class="ImagelistItem">  
               <div class="nameCategory">
                   <p class="email"> {{ email }}
@@ -51,12 +53,8 @@
           </div>          
         
         
-            <v-list density="compact" nav>
-              <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
-              <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
-              <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
-            </v-list>
-          </v-navigation-drawer>
+         
+          </v-navigation-drawer> -->
       
     </div>
 </template>
@@ -75,6 +73,7 @@
 </script>
 
 <style scoped>
+
 .ImagelistItem{
     display: flex;
     flex-direction: row;
@@ -85,7 +84,9 @@
     margin-left: 8px;
 }
 .name{
-    font-size: 15px;
+  text-align:center;
+  width:100%;  
+    font-size: 18px;
     margin-left: 20px;
     font-weight: 600;
     color: #95d5b2
@@ -99,5 +100,11 @@
   display: flex;
   justify-items: center;
   justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .name{
+    font-size: 20px;
+  }
+
 }
 </style>
