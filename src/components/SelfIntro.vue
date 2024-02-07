@@ -63,29 +63,57 @@
                     </p> 
                 </div>
                 
-                <button @click="downloadCV" id="downloadBtn" >
-                    Download CV
+                <button @click="downloadCv" id="downloadBtn" >
+                    {{ apiInprogress ? "Downloading..." : "Download CV" }}
                 </button>
+                <v-snackbar
+                v-model="showSnackBar"
+                location="bottom"
+                :timeout="2000"
+                color="#303234"
+                rounded="pill"
+                >
+                <p class="notification">
+                    <template v-if="!isError">
+                        <v-icon color="green" icon="mdi-emoticon-cool-outline"> </v-icon>
+                    </template>
+                    <template v-else>
+                        <v-icon color="red" icon="mdi-emoticon-dead-outline"> </v-icon>
+                    </template>
+                    <span style="margin-left: 10px; font-weight:500">{{isError ? "Error Occured While obtaining CV" : "Redirecting"}}</span></p>
+            </v-snackbar>
             </div>
         </div>
 </div>
 </template>
 
 <script>
-import {storage} from '../plugins/firebase.js';
-import { ref, getDownloadURL } from "@firebase/storage";
+import axios from 'axios';
     export default {
         data() {
             return {
-                resumePath: "gs://sangaraportfoliovue.appspot.com/Sangara Naarayanan R Resume.pdf"
+                apiInprogress: false,
+                isError: false,
+                showSnackBar: false,    
             }
         },
         methods: {
-            downloadCV() {
-                getDownloadURL(ref(storage, this.resumePath)).then((downloadUrl)=>{
-                    window.open(downloadUrl, "_blank");
-                })
-            }
+            async downloadCv(){
+                try {
+                    this.apiInprogress = true;
+                    this.showSnackBar = false;
+                    let endpoint= 'https://email-storage.vercel.app/getCv';
+                    let response = await axios.get(endpoint);
+                    this.apiInprogress = false;
+                    this.showSnackBar = true;
+                    window.open(response.data.url, "_blank");
+                  
+                } catch(e){
+                    this.apiInprogress = false;
+                    this.isError = true;
+                    this.showSnackBar = true;
+                }
+            },
         },
     }
 </script>
@@ -148,7 +176,7 @@ import { ref, getDownloadURL } from "@firebase/storage";
     }
     #downloadBtn{
         height: 50px;
-        width: 130px;
+        width: 140px;
         padding: 10px 10px;
         border: 1px solid #95d5b2 ;   
         border-radius: 3px;
