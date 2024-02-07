@@ -4,7 +4,7 @@
         v-motion
         :initial="{ opacity: 0, y: 100 }"
         :enter="{ opacity: 1, y: 0 }"
-        :delay="200"
+        :delay="100"
         >
             <v-img  class="blobImage" src="../assets/SangarImageBlobed.png"></v-img>
         </div>
@@ -16,7 +16,7 @@
                 v-motion
                 :initial="{ opacity: 0, x: -100 }"
                 :enter="{ opacity: 1, x: 0 }"
-                :delay="200"
+                :delay="100"
                 >
                     Software Development Engineer
                 </p>
@@ -24,7 +24,7 @@
                 v-motion
                 :initial="{ opacity: 0, x: -100 }"
                 :enter="{ opacity: 1, x: 0 }"
-                :delay="300"
+                :delay="200"
                 >
                 A Software Development Engineer with an experience of nearly 2 years in Software Industry with practical experience in both frontend and backend technologies and as well as hands-on exposure to several AWS cloud services.    
                 </p>
@@ -32,7 +32,7 @@
                 v-motion
                 :initial="{ opacity: 0, y: -100 }"
                 :enter="{ opacity: 1, y: 0 }"
-                :delay="400"
+                :delay="300"
                 >
                     <a href="https://www.linkedin.com/in/sangaranaarayananr" target="_blank" class="socialButton"><v-icon icon="mdi-linkedin"></v-icon></a>
                     <a href="mailto:rsangaranaarayanan@gmail.com" target="_blank" class="socialButton"><v-icon icon="mdi-email"></v-icon></a>
@@ -44,7 +44,7 @@
             v-motion
                 :initial="{ opacity: 0, y: 100 }"
                 :enter="{ opacity: 1, y: 0 }"
-                :delay="500"
+                :delay="300"
             >
                 <div class="yoe"> 
                     <p id="years">
