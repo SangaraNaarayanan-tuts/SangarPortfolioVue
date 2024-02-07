@@ -56,10 +56,10 @@
                 </div>
                 <div class=""> 
                     <p id="years">
-                        2
+                        4+
                     </p> 
                     <p id="exp">
-                        Worked For <br> Companies
+                        Apps from <br> Scratch
                     </p> 
                 </div>
                 
@@ -122,7 +122,7 @@ import axios from 'axios';
     .intro{
         margin-top:65px;
         width: 100%;
-        padding: 20px 40px;
+        padding: 20px 30px;
         display:flex;
         flex-direction:column;
         align-items:center;
