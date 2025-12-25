@@ -61,10 +61,10 @@
                     <v-img src="../assets/archDevelop.png"></v-img>
                     </div>
                     <p class="catTitle">
-                        Aws Architecture Designing
+                        Cloud Architecture Designing
                     </p>
                     <p class="catText">
-                        Designing powerful and scalable cloud solutions on AWS, building efficient architectures for seamless digital experiences.
+                        Designing powerful and scalable cloud solutions on AWS & GCP, building efficient architectures for seamless digital experiences.
                     </p>
             </div>
         </div>

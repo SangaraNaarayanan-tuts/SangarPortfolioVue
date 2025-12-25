@@ -26,7 +26,7 @@
                 :enter="{ opacity: 1, x: 0 }"
                 :delay="200"
                 >
-                A Software Development Engineer with an experience of nearly 2 years in Software Industry with practical experience in both frontend and backend technologies and as well as hands-on exposure to several AWS cloud services.    
+                A Software Development Engineer with an experience of nearly 5 years in Software Industry with practical experience in both frontend and backend technologies and as well as hands-on exposure to several AWS and GCP cloud services.    
                 </p>
                 <div class="social"
                 v-motion
@@ -48,7 +48,7 @@
             >
                 <div class="yoe"> 
                     <p id="years">
-                        2+
+                        4+
                     </p> 
                     <p id="exp">
                         Years Of <br>Experience

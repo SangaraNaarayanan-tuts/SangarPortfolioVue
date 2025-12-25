@@ -120,6 +120,21 @@
                     Aws Services
                 </p>
         </div> 
+        
+        <div class="skillsCard">
+            <div>
+                <v-avatar 
+                    size="40"
+                    class="skillsImg">
+                    <v-img
+                    :src="gcp"
+                    ></v-img>
+                </v-avatar>
+            </div>
+                <p class="skillTitle">
+                    GCP services
+                </p>
+        </div> 
     
     </div>
     <div class="workstitle"
@@ -138,8 +153,32 @@
         :delay="100"
         >
             <div id="workYear">
-                <div>Aug-2022</div>
+                <div>Jul-2024</div>
                 <div>Current</div>
+            </div>
+            
+            <div class="workImageCode"  style="width:200px; height:150px">
+                <v-img src="../assets/work/tensure.png"></v-img>
+            </div>
+            <section class="workDetails">
+            <div class="workCompany">
+                Tensure
+            </div>
+            
+            <div class="workRole">
+                Senior Software Engineer
+            </div> 
+            </section>
+        </div>
+        <div class="workCard"
+        v-motion
+        :initial="{ opacity: 0, X: -50 }"
+        :visibleOnce="{ opacity: 1, X: 0 }"
+        :delay="100"
+        >
+            <div id="workYear">
+                <div>Aug-2022</div>
+                <div>Jul-2024</div>
             </div>
             
             <div class="workImageCode" >
@@ -197,7 +236,8 @@
                 nodeJs: require('../assets/skills/nodeJs.svg'),
                 mysql: require('../assets/skills/mysql.svg'),
                 awsDb: require('../assets/skills/awsDynamodb.svg'),
-                aws: require('../assets/skills/aws.svg')
+                aws: require('../assets/skills/aws.svg'),
+                gcp: require('../assets/skills/gcp.svg')
             }
         }
         
@@ -252,7 +292,7 @@
 }
 .skillsImg{
     padding: 8px;
-    background-color: #848482;
+    background-color: #ffffffff;
 
 }
 .skillTitle{
@@ -269,7 +309,7 @@
     display: flex;
     flex-direction: column;
     align-items:center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color:#232323;
     padding: 20px 20px;
     height:290px;
