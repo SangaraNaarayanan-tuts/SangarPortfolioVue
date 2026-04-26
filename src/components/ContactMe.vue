@@ -7,8 +7,8 @@
             :visibleOnce="{ opacity: 1, y: 0 }"
             :delay="200"
             >
-                <span> Contact Me </span> 
-                <v-icon style="color: #95d5b2; margin-left:4px" icon="mdi-gmail"></v-icon>
+                <span> {{ content.title }} </span> 
+                <v-icon style="color: #95d5b2; margin-left:4px" :icon="content.titleIcon"></v-icon>
             </div>
             <div class="subtitle"
             v-motion
@@ -16,8 +16,7 @@
             :visibleOnce="{ opacity: 1, y: 0 }"
             :delay="300"
             >
-                Connect with me to bring your<br> <span style="color:#f4e285;  font-size: 16px;"> Dream project</span> to <span style="color:#90e0ef;  font-size: 16px;">life</span>.
-                Shoot me an <span style="color:#80ed99;  font-size: 16px;">email now!</span>
+                <p v-html="content.subtitleHtml"></p>
             </div>
         </div>
         <div class="formDiv">
@@ -33,7 +32,7 @@
                 class="formField"
                 v-model="name"
                 base-color="#f4f3ee"
-                label="Name"
+                :label="content.fieldLabels.name"
                 color="#95d5b2"
                 variant="outlined"
                 ></v-text-field>
@@ -50,7 +49,7 @@
                 v-model="email"
                 base-color="#f4f3ee"
                 class="formField"
-                label="Email"
+                :label="content.fieldLabels.email"
                 variant="outlined"
                 color="#95d5b2"
                 ></v-text-field>
@@ -66,7 +65,7 @@
                 v-model="message"
                 class="formField"
                 base-color="#f4f3ee"
-                label="Message"
+                :label="content.fieldLabels.message"
                 auto-grow
                 variant="outlined"
                 rows="4"
@@ -83,7 +82,7 @@
                 >  
                     <button type="submit" class="submitBtn">
 
-                        {{ apiInprogress ?  "Sending..." : "Send To Me" }}
+                        {{ apiInprogress ? content.buttonText.loading : content.buttonText.default }}
                     
                     </button>
                 </div>
@@ -102,7 +101,7 @@
                     <template v-else>
                         <v-icon color="red" icon="mdi-emoticon-dead-outline"> </v-icon>
                     </template>
-                    <span style="margin-left: 10px; font-weight:500">{{isError ? "Error Occured While Sending message" : "Message sent successfully"}}</span></p>
+                    <span style="margin-left: 10px; font-weight:500">{{ isError ? content.snackbarMessage.error : content.snackbarMessage.success }}</span></p>
             </v-snackbar>
         </div>
     </div>
@@ -110,9 +109,11 @@
 
 <script>
 import axios from 'axios';
+import content from '../data/contactMe.json';
     export default {
         data(){
             return{
+                content,
                 name:"",
                 email:"",
                 message:"",
@@ -135,7 +136,7 @@ import axios from 'axios';
                     let requesBody = {
                         "userEmail": this.email, "userName": this.name, "userMessage": this.message
                     };
-                        let endpoint= 'https://email-storage.vercel.app/contact/emailDetails';
+                        let endpoint= this.content.endpoint;
                     await axios.post(endpoint, requesBody);
                     this.apiInprogress = false;
                     this.showSnackBar = true;

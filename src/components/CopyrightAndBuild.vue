@@ -1,18 +1,23 @@
 <template>
     <div class="copyrightandbuild">
         <p class="build">
-            Built in <span style="color:#80ed99;  font-size: 14px;">Vue js 3</span>
+            {{ content.buildPrefix }} <span style="color:#80ed99;  font-size: 14px;">{{ content.buildTech }}</span>
 
         </p>
         <p class="build">
-            <span><v-icon icon="mdi-copyright"></v-icon> 2024 to  <a href class="link">rsangaranaarayanan@gmail.com</a> </span>
+            <span><v-icon icon="mdi-copyright"></v-icon> {{ content.copyrightStartYear }} to  <a href class="link">{{ content.email }}</a> </span>
         </p>
     </div>
 </template>
 
 <script>
+import content from '../data/copyrightAndBuild.json';
     export default {
-        
+        data() {
+            return {
+                content
+            };
+        }
     }
 </script>
 

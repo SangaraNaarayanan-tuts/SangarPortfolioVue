@@ -1,0 +1,46 @@
+{
+  "imageKey": "profileBlob",
+  "title": "Software Development Engineer",
+  "description": "A Software Development Engineer with an experience of nearly 5 years in Software Industry with practical experience in both frontend and backend technologies and as well as hands-on exposure to several AWS and GCP cloud services.",
+  "socialLinks": [
+    {
+      "href": "https://www.linkedin.com/in/sangaranaarayananr",
+      "icon": "mdi-linkedin"
+    },
+    {
+      "href": "mailto:rsangaranaarayanan@gmail.com",
+      "icon": "mdi-email"
+    },
+    {
+      "href": "https://github.com/SangaraNaarayanan-tuts",
+      "icon": "mdi-github"
+    },
+    {
+      "href": "https://www.reddit.com/user/sangar-tuts",
+      "icon": "mdi-reddit"
+    }
+  ],
+  "highlights": [
+    {
+      "value": "5+",
+      "label": "Years Of <br>Experience"
+    },
+    {
+      "value": "8+",
+      "label": "Apps from <br> Scratch"
+    },
+    {
+      "value": "3+",
+      "label": "Companies <br>Worked"
+    }
+  ],
+  "downloadButton": {
+    "defaultText": "Download CV",
+    "loadingText": "Downloading..."
+  },
+  "snackbarMessage": {
+    "success": "Redirecting",
+    "error": "Error Occured While obtaining CV"
+  },
+  "cvEndpoint": "https://u1u9khw7gyq0bdkb.public.blob.vercel-storage.com/Sangara%20Naarayanan%20R.pdf"
+}

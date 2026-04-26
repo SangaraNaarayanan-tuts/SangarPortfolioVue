@@ -6,8 +6,8 @@
         :enter="{ opacity: 1, y: 0 }"
         :delay="200"
         >
-                <span> Converting </span> 
-                    <v-icon style="color: #95d5b2" icon="mdi-xml"></v-icon>
+                <span> {{ content.title }} </span> 
+                    <v-icon style="color: #95d5b2" :icon="content.titleIcon"></v-icon>
          </div>
          <div id="wizard"
          v-motion
@@ -15,12 +15,13 @@
          :enter="{ opacity: 1, y: 0 }"
          :delay="300"
          >  
-            <p> Diagrams into <span id="wiz1"> Architectures</span>,
-              Designs into <span id="wiz2"> Digital Reality</span>,
-              Concepts into <span id="wiz3"> Code</span>.</p>
+            <p v-html="content.wizardHtml"></p>
          </div>
         <div class="categories">
-            <div class="cateCard"
+            <div
+            v-for="category in content.categories"
+            :key="category.title"
+            class="cateCard"
             v-motion
             :initial="{ opacity: 0, X: -50 }"
             :enter="{ opacity: 1, X: 0 }"
@@ -28,52 +29,32 @@
             >
                 <div class="catImg"
             >
-                <v-img src="../assets/webDevelop.png"></v-img>
+                <v-img :src="imageSources[category.imageKey]"></v-img>
                 </div>
                 <p class="catTitle">
-                    Website Development
+                    {{ category.title }}
                 </p>
                 <p class="catText">
-                    Creating and maintaining websites or web applications, creating a seamless website experience.
+                    {{ category.description }}
                 </p>
-            </div>
-            <div class="cateCard"
-            v-motion
-            :initial="{ opacity: 0, X: -50}"
-            :enter="{ opacity: 1, X: 0 }"
-            :delay="400">
-                <div class="catImg">
-                    <v-img src="../assets/mobileAppDevelop.png"></v-img>
-                    </div>
-                    <p class="catTitle">
-                        Mobile App Development
-                    </p>
-                    <p class="catText">
-                        Creating and maintaining android applications, creating a seamless application experience.
-                    </p>
-            </div>
-            <div class="cateCard"
-            v-motion
-            :initial="{ opacity: 0, X: -50 }"
-            :enter="{ opacity: 1, X: 0 }"
-            :delay="400">
-                <div class="catImg">
-                    <v-img src="../assets/archDevelop.png"></v-img>
-                    </div>
-                    <p class="catTitle">
-                        Cloud Architecture Designing
-                    </p>
-                    <p class="catText">
-                        Designing powerful and scalable cloud solutions on AWS & GCP, building efficient architectures for seamless digital experiences.
-                    </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import content from '../data/categoryOfWork.json';
     export default {
-        
+        data() {
+            return {
+                content,
+                imageSources: {
+                    webDevelop: require('../assets/webDevelop.png'),
+                    mobileAppDevelop: require('../assets/mobileAppDevelop.png'),
+                    archDevelop: require('../assets/archDevelop.png')
+                }
+            };
+        }
     }
 </script>
 

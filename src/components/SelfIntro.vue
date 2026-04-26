@@ -6,7 +6,7 @@
         :enter="{ opacity: 1, y: 0 }"
         :delay="100"
         >
-            <v-img  class="blobImage" src="../assets/SangarImageBlobed.png"></v-img>
+            <v-img  class="blobImage" :src="imageSources[content.imageKey]"></v-img>
         </div>
         <div class="child2" 
         
@@ -18,7 +18,7 @@
                 :enter="{ opacity: 1, x: 0 }"
                 :delay="100"
                 >
-                    Software Development Engineer
+                    {{ content.title }}
                 </p>
                 <p class="selfIntroCont"
                 v-motion
@@ -26,7 +26,7 @@
                 :enter="{ opacity: 1, x: 0 }"
                 :delay="200"
                 >
-                A Software Development Engineer with an experience of nearly 5 years in Software Industry with practical experience in both frontend and backend technologies and as well as hands-on exposure to several AWS and GCP cloud services.    
+                {{ content.description }}
                 </p>
                 <div class="social"
                 v-motion
@@ -34,10 +34,7 @@
                 :enter="{ opacity: 1, y: 0 }"
                 :delay="300"
                 >
-                    <a href="https://www.linkedin.com/in/sangaranaarayananr" target="_blank" class="socialButton"><v-icon icon="mdi-linkedin"></v-icon></a>
-                    <a href="mailto:rsangaranaarayanan@gmail.com" target="_blank" class="socialButton"><v-icon icon="mdi-email"></v-icon></a>
-                    <a href="https://github.com/SangaraNaarayanan-tuts" target="_blank" class="socialButton"><v-icon icon="mdi-github"></v-icon></a>
-                    <a href="https://www.reddit.com/user/sangar-tuts" target="_blank" class="socialButton"><v-icon icon="mdi-reddit"></v-icon></a>
+                    <a v-for="social in content.socialLinks" :key="social.href" :href="social.href" target="_blank" class="socialButton"><v-icon :icon="social.icon"></v-icon></a>
                 </div>
             </div>
             <div class="professionalDetails"
@@ -46,25 +43,16 @@
                 :enter="{ opacity: 1, y: 0 }"
                 :delay="300"
             >
-                <div class="yoe"> 
+                <div v-for="highlight in content.highlights" :key="highlight.label" class="yoe"> 
                     <p id="years">
-                        4+
+                        {{ highlight.value }}
                     </p> 
-                    <p id="exp">
-                        Years Of <br>Experience
-                    </p> 
-                </div>
-                <div class=""> 
-                    <p id="years">
-                        4+
-                    </p> 
-                    <p id="exp">
-                        Apps from <br> Scratch
+                    <p id="exp" v-html="highlight.label">
                     </p> 
                 </div>
                 
                 <button @click="downloadCv" id="downloadBtn" >
-                    {{ apiInprogress ? "Downloading..." : "Download CV" }}
+                    {{ apiInprogress ? content.downloadButton.loadingText : content.downloadButton.defaultText }}
                 </button>
                 <v-snackbar
                 v-model="showSnackBar"
@@ -80,7 +68,7 @@
                     <template v-else>
                         <v-icon color="red" icon="mdi-emoticon-dead-outline"> </v-icon>
                     </template>
-                    <span style="margin-left: 10px; font-weight:500">{{isError ? "Error Occured While obtaining CV" : "Redirecting"}}</span></p>
+                    <span style="margin-left: 10px; font-weight:500">{{ isError ? content.snackbarMessage.error : content.snackbarMessage.success }}</span></p>
             </v-snackbar>
             </div>
         </div>
@@ -88,10 +76,14 @@
 </template>
 
 <script>
-import axios from 'axios';
+import content from '../data/selfIntro.json';
     export default {
         data() {
             return {
+                content,
+                imageSources: {
+                    profileBlob: require('../assets/SangarImageBlobed.png')
+                },
                 apiInprogress: false,
                 isError: false,
                 showSnackBar: false,    
@@ -102,11 +94,10 @@ import axios from 'axios';
                 try {
                     this.apiInprogress = true;
                     this.showSnackBar = false;
-                    let endpoint= 'https://email-storage.vercel.app/getCv';
-                    let response = await axios.get(endpoint);
+                    let endpoint= this.content.cvEndpoint;
                     this.apiInprogress = false;
                     this.showSnackBar = true;
-                    window.open(response.data.url, "_blank");
+                    window.open(endpoint, "_blank");
                   
                 } catch(e){
                     this.apiInprogress = false;
@@ -169,7 +160,8 @@ import axios from 'axios';
         gap: 20px;
     }
     #years{
-        font-size:30px
+        font-size:30px;
+        color: #95d5b2;
     }
     #exp{
         font-size:15px

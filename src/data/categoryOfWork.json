@@ -1,0 +1,22 @@
+{
+  "title": "Converting",
+  "titleIcon": "mdi-xml",
+  "wizardHtml": "Diagrams into <span id=\"wiz1\"> Architectures</span>, Designs into <span id=\"wiz2\"> Digital Reality</span>, Concepts into <span id=\"wiz3\"> Code</span>.",
+  "categories": [
+    {
+      "title": "Website Development",
+      "description": "Creating and maintaining websites or web applications, creating a seamless website experience.",
+      "imageKey": "webDevelop"
+    },
+    {
+      "title": "Mobile App Development",
+      "description": "Creating and maintaining android applications, creating a seamless application experience.",
+      "imageKey": "mobileAppDevelop"
+    },
+    {
+      "title": "Cloud Architecture Designing",
+      "description": "Designing powerful and scalable cloud solutions on AWS & GCP, building efficient architectures for seamless digital experiences.",
+      "imageKey": "archDevelop"
+    }
+  ]
+}

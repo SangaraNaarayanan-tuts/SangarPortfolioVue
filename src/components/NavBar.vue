@@ -1,14 +1,13 @@
 <template>
-    <div
-    v-motion
-    :initial="{ opacity: 0, y: -30 }"
-    :enter="{ opacity: 1, y: 0 }"
-    :delay="100"
-    >
-        <v-app-bar app
-        height="65"
-        >
-            <p class="name">Sangara naarayanan R</p>
+    <div>
+        <v-app-bar app fixed class="fixedNav" height="65">
+            <p
+            class="name"
+            v-motion
+            :initial="{ opacity: 0, y: -30 }"
+            :enter="{ opacity: 1, y: 0 }"
+            :delay="100"
+            >{{ content.name }}</p>
             <!-- <template   v-slot:append> 
                 <v-avatar
                 @click="drawer = !drawer"
@@ -60,12 +59,14 @@
 </template>
 
 <script>
+import content from '../data/navBar.json';
     export default {
         data(){
             return{
+                content,
                 snackbarminWidth: '250px',
       snackbarHeight: '50px', 
-      email: "rsangaranaarayanan@gmail.com",
+      email: content.email,
        drawer: false,
             }
         }
@@ -73,6 +74,14 @@
 </script>
 
 <style scoped>
+
+.fixedNav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
 .ImagelistItem{
     display: flex;

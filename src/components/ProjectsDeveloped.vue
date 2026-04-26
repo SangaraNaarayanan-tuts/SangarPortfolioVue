@@ -6,13 +6,16 @@
         :visibleOnce="{ opacity: 1, y: 0 }"
         :delay="200"
         >
-            <span> Individual Projects </span> 
-                <v-icon style="color: #95d5b2" icon="mdi-hammer-wrench"></v-icon>
+            <span> {{ content.title }} </span> 
+                <v-icon style="color: #95d5b2" :icon="content.titleIcon"></v-icon>
      </div>
      <div class="projects"
      
      >
-        <div class="projectCard"
+        <div
+        v-for="project in content.projects"
+        :key="project.name"
+        class="projectCard"
         v-motion
         :initial="{ opacity: 0, X: -50 }"
         :visibleOnce="{ opacity: 1, X: 0 }"
@@ -20,19 +23,19 @@
         >
 
             <div class="projectImage">
-                <v-img src="../assets/projects/DarkNotes/appLogo.png"></v-img>
+                <v-img :src="projectImages[project.imageKey]"></v-img>
             </div>
             
             <div class="projectName">
-                    Dark Notes
+                    {{ project.name }}
             </div>
             
             <div class="projectDes">
-                Dark Notes is a cloud-based note-taking application that seamlessly integrates with any device using your Gmail account. It boasts a range of features designed to keep your notes accessible from any location.
+                {{ project.description }}
             </div>
 
             <div class="projectRelease">
-                <span  style="color: #95d5b2">Release Date:</span> <span >4 Nov 2023</span>
+                <span  style="color: #95d5b2">Release Date:</span> <span >{{ project.releaseDate }}</span>
             </div>
             
             <div class="projectlinks">
@@ -42,8 +45,8 @@
                 </div> -->
                 
                 <div class="projectTry">
-                    <v-icon size="28" style="color: #95d5b2"  icon="mdi-google-play"></v-icon>
-                    <a href="https://play.google.com/store/apps/details?id=com.sangartuts.dark_notes" target="_blank" class="link"> Try Application</a>
+                    <v-icon size="28" style="color: #95d5b2" :icon="project.ctaIcon"></v-icon>
+                    <a :href="project.ctaLink" target="_blank" class="link"> {{ project.ctaText }}</a>
                 </div>
             </div>
 
@@ -53,8 +56,16 @@
 </template>
 
 <script>
+import content from '../data/projectsDeveloped.json';
     export default {
-        
+        data() {
+            return {
+                content,
+                projectImages: {
+                    darkNotesAppLogo: require('../assets/projects/DarkNotes/appLogo.png')
+                }
+            };
+        }
     }
 </script>
 

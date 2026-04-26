@@ -1,0 +1,13 @@
+{
+  "title": "Certifications",
+  "titleIcon": "mdi-certificate-outline",
+  "certifications": [
+    {
+      "issuedOn": "Sep-2024",
+      "logoKey": "googleCloud",
+      "issuer": "Google Cloud",
+      "name": "Professional Architect",
+      "description": "Google Cloud Professional Architect certified on Sep 2024."
+    }
+  ]
+}

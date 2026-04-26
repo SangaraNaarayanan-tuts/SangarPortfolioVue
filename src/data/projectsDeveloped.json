@@ -1,0 +1,15 @@
+{
+  "title": "Individual Projects",
+  "titleIcon": "mdi-hammer-wrench",
+  "projects": [
+    {
+      "name": "Dark Notes",
+      "description": "Dark Notes is a cloud-based note-taking application that seamlessly integrates with any device using your Gmail account. It boasts a range of features designed to keep your notes accessible from any location.",
+      "releaseDate": "4 Nov 2023",
+      "imageKey": "darkNotesAppLogo",
+      "ctaText": "Try Application",
+      "ctaLink": "https://play.google.com/store/apps/details?id=com.sangartuts.dark_notes",
+      "ctaIcon": "mdi-google-play"
+    }
+  ]
+}

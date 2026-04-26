@@ -1,0 +1,19 @@
+{
+  "title": "Contact Me",
+  "titleIcon": "mdi-gmail",
+  "subtitleHtml": "Connect with me to bring your<br> <span style=\"color:#f4e285;  font-size: 16px;\"> Dream project</span> to <span style=\"color:#90e0ef;  font-size: 16px;\">life</span>. Shoot me an <span style=\"color:#80ed99;  font-size: 16px;\">email now!</span>",
+  "fieldLabels": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+  },
+  "buttonText": {
+    "default": "Send To Me",
+    "loading": "Sending..."
+  },
+  "snackbarMessage": {
+    "success": "Message sent successfully",
+    "error": "Error Occured While Sending message"
+  },
+  "endpoint": "https://email-storage.vercel.app/contact/emailDetails"
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Skills & Experience",
+  "titleIcon": "mdi-sword-cross",
+  "workIntro": "The companies that have been instrumental in cultivating my skills and molding me into an expert in the above mentioned areas.",
+  "skills": [
+    { "key": "vueJs", "name": "Vue JS" },
+    { "key": "react", "name": "React JS" },
+    { "key": "flutter", "name": "Flutter" },
+    { "key": "nodeJs", "name": "Node Js" },
+    { "key": "mysql", "name": "Mysql" },
+    { "key": "awsDb", "name": "Dynamo db" },
+    { "key": "aws", "name": "Aws Services" },
+    { "key": "gcp", "name": "GCP services" }
+  ],
+  "experience": [
+    {
+      "start": "Jul-2024",
+      "end": "Current",
+      "company": "Tensure",
+      "role": "Senior Software Engineer B",
+      "imageKey": "tensure",
+      "imageClass": "workImageCode",
+      "imageStyle": "width:200px; height:150px"
+    },
+    {
+      "start": "Aug-2022",
+      "end": "Jul-2024",
+      "company": "Codestax.Ai",
+      "role": "Software Development Engineer - I",
+      "imageKey": "codestax",
+      "imageClass": "workImageCode",
+      "imageStyle": ""
+    },
+    {
+      "start": "Feb-2022",
+      "end": "Aug-2022",
+      "company": "Accolite",
+      "role": "Software Developer - Intern",
+      "imageKey": "accolite",
+      "imageClass": "workImageAcc",
+      "imageStyle": ""
+    }
+  ]
+}

@@ -6,8 +6,8 @@
         :visibleOnce="{ opacity: 1, y: 0 }"
         :delay="200"
         >
-            <span> Skills & Experience </span> 
-                <v-icon style="color: #95d5b2" icon="mdi-sword-cross"></v-icon>
+            <span> {{ content.title }} </span> 
+                <v-icon style="color: #95d5b2" :icon="content.titleIcon"></v-icon>
      </div>
      <div class="skills"
      v-motion
@@ -15,124 +15,22 @@
      :visibleOnce="{ opacity: 1, X: 0 }"
      :delay="300"
      >
-        <div class="skillsCard">
+        <div
+            v-for="skill in content.skills"
+            :key="skill.key"
+            class="skillsCard"
+        >
             <div>
                 <v-avatar 
                     size="40"
                     class="skillsImg">
                     <v-img
-                    :src="vueJs"
+                    :src="skillImages[skill.key]"
                     ></v-img>
                 </v-avatar>
             </div>
                 <p class="skillTitle">
-                    Vue JS
-                </p>
-        </div> 
-        
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="react"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    React JS
-                </p>
-        </div>
-
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="flutter"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    Flutter
-                </p>
-        </div> 
-
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="nodeJs"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    Node Js
-                </p>
-        </div> 
-
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="mysql"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    Mysql
-                </p>
-        </div>
-        
-        
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="awsDb"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    Dynamo db
-                </p>
-        </div> 
-    
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="aws"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    Aws Services
-                </p>
-        </div> 
-        
-        <div class="skillsCard">
-            <div>
-                <v-avatar 
-                    size="40"
-                    class="skillsImg">
-                    <v-img
-                    :src="gcp"
-                    ></v-img>
-                </v-avatar>
-            </div>
-                <p class="skillTitle">
-                    GCP services
+                    {{ skill.name }}
                 </p>
         </div> 
     
@@ -143,79 +41,33 @@
     :visibleOnce="{ opacity: 1, X: 0 }"
     :delay="400"
     >
-        The companies that have been instrumental in cultivating my skills and molding me into an expert in the above mentioned areas. 
+        {{ content.workIntro }}
     </div>
     <div class="work">
-        <div class="workCard"
+        <div
+        v-for="item in content.experience"
+        :key="`${item.company}-${item.start}`"
+        class="workCard"
         v-motion
         :initial="{ opacity: 0, X: -50 }"
         :visibleOnce="{ opacity: 1, X: 0 }"
         :delay="100"
         >
             <div id="workYear">
-                <div>Jul-2024</div>
-                <div>Current</div>
+                <div>{{ item.start }}</div>
+                <div>{{ item.end }}</div>
             </div>
             
-            <div class="workImageCode"  style="width:200px; height:150px">
-                <v-img src="../assets/work/tensure.png"></v-img>
+            <div :class="item.imageClass" :style="item.imageStyle">
+                <v-img :src="workImages[item.imageKey]"></v-img>
             </div>
             <section class="workDetails">
             <div class="workCompany">
-                Tensure
+                {{ item.company }}
             </div>
             
             <div class="workRole">
-                Senior Software Engineer
-            </div> 
-            </section>
-        </div>
-        <div class="workCard"
-        v-motion
-        :initial="{ opacity: 0, X: -50 }"
-        :visibleOnce="{ opacity: 1, X: 0 }"
-        :delay="100"
-        >
-            <div id="workYear">
-                <div>Aug-2022</div>
-                <div>Jul-2024</div>
-            </div>
-            
-            <div class="workImageCode" >
-                <v-img src="../assets/work/codestax.png"></v-img>
-            </div>
-            <section class="workDetails">
-            <div class="workCompany">
-                Codestax.Ai
-            </div>
-            
-            <div class="workRole">
-                Software Development Engineer - I
-            </div> 
-            </section>
-        </div>
-        
-        <div class="workCard"
-        v-motion
-        :initial="{ opacity: 0, X: -50 }"
-        :visibleOnce="{ opacity: 1, X: 0 }"
-        :delay="100"
-        >
-            <div id="workYear">
-                <div>Feb-2022</div>
-                <div>Aug-2022</div>
-            </div>
-            
-            <div class="workImageAcc" style="">
-                <v-img src="../assets/work/Accolite.png"></v-img>
-            </div>
-            <section class="workDetails">
-            <div class="workCompany">
-                Accolite
-            </div>
-            
-            <div class="workRole">
-                Software Developer - Intern
+                {{ item.role }}
             </div> 
             </section>
         </div>
@@ -227,17 +79,26 @@
 </template>
 
 <script>
+import content from '../data/skillsAndWork.json';
     export default {
         data(){
             return{
-                vueJs: require('../assets/skills/vueJS.svg'),
-                react: require('../assets/skills/reactJs.svg'),
-                flutter: require('../assets/skills/flutter.svg'),
-                nodeJs: require('../assets/skills/nodeJs.svg'),
-                mysql: require('../assets/skills/mysql.svg'),
-                awsDb: require('../assets/skills/awsDynamodb.svg'),
-                aws: require('../assets/skills/aws.svg'),
-                gcp: require('../assets/skills/gcp.svg')
+                content,
+                skillImages: {
+                    vueJs: require('../assets/skills/vueJS.svg'),
+                    react: require('../assets/skills/reactJs.svg'),
+                    flutter: require('../assets/skills/flutter.svg'),
+                    nodeJs: require('../assets/skills/nodeJs.svg'),
+                    mysql: require('../assets/skills/mysql.svg'),
+                    awsDb: require('../assets/skills/awsDynamodb.svg'),
+                    aws: require('../assets/skills/aws.svg'),
+                    gcp: require('../assets/skills/gcp.svg')
+                },
+                workImages: {
+                    tensure: require('../assets/work/tensure.png'),
+                    codestax: require('../assets/work/codestax.png'),
+                    accolite: require('../assets/work/Accolite.png')
+                }
             }
         }
         
