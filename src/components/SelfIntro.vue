@@ -43,14 +43,14 @@
                 :enter="{ opacity: 1, y: 0 }"
                 :delay="300"
             >
-                <div v-for="highlight in content.highlights" :key="highlight.label" class="yoe"> 
-                    <p id="years">
+                <div v-for="highlight in content.highlights" :key="highlight.label" class="yoe">
+                    <p class="years">
                         {{ highlight.value }}
-                    </p> 
-                    <p id="exp" v-html="highlight.label">
-                    </p> 
+                    </p>
+                    <p class="exp" v-html="highlight.label">
+                    </p>
                 </div>
-                
+
                 <button @click="downloadCv" id="downloadBtn" >
                     {{ apiInprogress ? content.downloadButton.loadingText : content.downloadButton.defaultText }}
                 </button>
@@ -125,6 +125,7 @@ import content from '../data/selfIntro.json';
     }
     .child2 {
         margin: 0px;
+        width: 100%;
     }
     #title{
         font-size:16px;
@@ -158,12 +159,21 @@ import content from '../data/selfIntro.json';
         align-items:center;
         justify-content: space-between ;
         gap: 20px;
+        flex-wrap: nowrap;
     }
-    #years{
+    .yoe{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 0 0 auto;
+        min-width: 90px;
+    }
+    .years{
         font-size:30px;
         color: #95d5b2;
     }
-    #exp{
+    .exp{
         font-size:15px
     }
     #downloadBtn{
@@ -174,6 +184,7 @@ import content from '../data/selfIntro.json';
         border-radius: 3px;
         color: #95d5b2;
         transition: .5s ;
+        flex: 0 0 auto;
     }
     
     #downloadBtn:hover{
@@ -213,6 +224,57 @@ import content from '../data/selfIntro.json';
         .professionalDetails{
             width: 50%;
             justify-content: flex-start ;
+            flex-wrap: nowrap;
+        }
+        .yoe{
+            flex: 0 0 auto;
+            min-width: unset;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .mainIntro{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #title{
+            text-align: center;
+        }
+        .selfIntroCont{
+            text-align: center;
+        }
+        .social{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .socialButton{
+            margin: 0;
+        }
+        .professionalDetails{
+            width: 100%;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        #downloadBtn{
+            order: 2;
+            flex-basis: 100%;
+            width: 100%;
+            max-width: 220px;
+            margin: 6px auto 0;
+        }
+        .yoe{
+            order: 1;
+            flex: 1 1 0;
+            min-width: 90px;
         }
     }
 </style>
