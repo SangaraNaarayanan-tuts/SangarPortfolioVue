@@ -23,4 +23,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-A normal vue application with dynamic data with vue 3 planned to create a react app
+A normal vue application with dynamic data with vue 3 .
