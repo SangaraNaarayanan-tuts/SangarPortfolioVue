@@ -23,4 +23,5 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-A normal vue application with dynamic data with vue 3 .
+A normal vue application with dynamic data with vue 3.
+All the data are present as a json in this application
