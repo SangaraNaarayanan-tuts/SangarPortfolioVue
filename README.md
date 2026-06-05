@@ -93,3 +93,5 @@ Update the JSON files, then restart or refresh the dev server if needed. Skill i
 ## Customize configuration
 
 See the [Vue CLI configuration reference](https://cli.vuejs.org/config/). Build options live in `vue.config.js`.
+
+To register this as a vue app built for a poc in few days
