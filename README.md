@@ -5,6 +5,7 @@ A single-page personal portfolio built with **Vue 3** and **Vuetify 3**. Section
 ## Features
 
 - Responsive layout with Vuetify components and MDI icons
+- Built from scratch using Vue 3.
 - Scroll animations via [@vueuse/motion](https://motion.vueuse.org/)
 - Contact form backed by a configurable HTTP endpoint
 - CV download link configured in JSON
